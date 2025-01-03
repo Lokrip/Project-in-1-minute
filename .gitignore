@@ -10,7 +10,7 @@ __pycache__/
 venv/
 *.egg-info
 
-# Django
+
 /static/
 *.log
 
