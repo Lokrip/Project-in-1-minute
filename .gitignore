@@ -11,6 +11,7 @@ venv/
 *.egg-info
 
 # Django
+/static/
 *.log
 
 # IDEs and editors
