@@ -29,7 +29,7 @@ DEBUG = False
 ALLOWED_HOSTS = ["app-task1-66eb7a08e6fc.herokuapp.com"]
 
 
-# Application definition
+# Application definitio
 
 INSTALLED_APPS = [
     'django.contrib.admin',
