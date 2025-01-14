@@ -12,13 +12,5 @@ app.autodiscover_tasks()
 
 
 @app.task
-def update_total_time(total_time, summary_id):
-    from db.models import UserSummary
-    summary = UserSummary.objects.get(id=summary_id)
-    summary.total_time = total_time
-    summary.save()
-    
-
-@app.task
 def test_task():
     print('yes!!')
