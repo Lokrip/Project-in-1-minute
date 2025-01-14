@@ -12,6 +12,7 @@ venv/
 
 # Django
 *.log
+celery_app.py
 
 # IDEs and editors
 .vscode/

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    "db"
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = os.environ.get("CLOUDAMQP_URL", 'redis://redis:6379/0' )
+# Разрешенные форматы контента
+CELERY_ACCEPT_CONTENT = ['json'] # Указывает, какие форматы контента Celery может принимать. В данном случае это JSON.
+# Сериализатор задач
+CELERY_TASK_SERIALIZER = 'json' # Указывает, в каком формате задачи будут сериализованы (преобразованы в строку) перед отправкой в брокер. Здесь используется JSON.
+CELERY_RESULT_BACKEND = os.environ.get("REDIS_URL", 'redis://redis:6379/0' )
