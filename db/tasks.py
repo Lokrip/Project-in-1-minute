@@ -6,7 +6,7 @@ from django.conf import settings
 #Это нужно чтобы celery нашел все задачи до запуска приложение django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'service.settings')
 
-app = Celery('task_tracker', broker=settings.CELERY_BROKER_URL, backend=settings.CELERY_RESULT_BACKEND)
+app = Celery('service', broker=settings.CELERY_BROKER_URL, backend=settings.CELERY_RESULT_BACKEND)
 app.config_from_object('django.conf:settings', namespace="CELERY")
 app.autodiscover_tasks()
 
