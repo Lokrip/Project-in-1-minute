@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from db.models import UserSummary
-from .celery import update_total_time, test_task
+from db.tasks import update_total_time, test_task
 
 def index_app(request):
     test_task.delay()
