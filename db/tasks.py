@@ -1,5 +1,5 @@
 import os
-
+import time
 from celery import Celery
 from django.conf import settings
 
@@ -10,7 +10,7 @@ app.config_from_object('django.conf:settings', namespace="CELERY")
 app.autodiscover_tasks()
 
 
-
 @app.task
 def test_task():
+    time.sleep(20)
     print('yes!!')
