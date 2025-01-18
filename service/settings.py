@@ -142,3 +142,13 @@ CELERY_ACCEPT_CONTENT = ['json'] # Указывает, какие форматы
 # Сериализатор задач
 CELERY_TASK_SERIALIZER = 'json' # Указывает, в каком формате задачи будут сериализованы (преобразованы в строку) перед отправкой в брокер. Здесь используется JSON.
 CELERY_RESULT_BACKEND = os.environ.get("REDISCLOUD_URL", 'redis://redis:6379/0' )
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn=os.environ.get("SENTRY_DSN", ''),
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)
